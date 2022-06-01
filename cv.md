@@ -83,4 +83,4 @@ I am currently working on the development of several fintech applications.
 Self Study + Android Programming Cource in IT-Academy (Bishkek) + Study in work + Videos from World Wide Web.
 
 ### English
-Reading technical documentation - 3 years. Study in school and university. I want to know it better
+Reading technical documentation - 3 years. Study in school and university. I want to know it better 😊
