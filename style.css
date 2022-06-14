@@ -2,6 +2,48 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
 
+nav {
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: -8px;
+    background: #00b200;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    background: linear-gradient(360deg, #FFE283 6%, #FFCFBB 100%);
+}
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+nav li {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    float: left;
+    display: inline;
+    align-items: center;
+    display: flex;
+    color: black;
+}
+
+#icon-telegram {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+#icon-discord {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    margin-left: 24px;
+}
+
 header {
     font-family: 'Audiowide', sans-serif;
     font-size: 26px;
@@ -56,7 +98,6 @@ header {
     font-size: 75%;
     color: #000000bd;
     line-height: 200%;
-    border-top-left-radius: 12px;
     background: linear-gradient(45deg, #FFA883 2%, #FFCFBB 100%);
 }
 
@@ -65,7 +106,6 @@ header {
     padding: 24px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 100%;
-    border-top-right-radius: 12px;
     background: linear-gradient(45deg, #FFE283 2%, #FFCFBB 100%);
 }
 
@@ -98,10 +138,12 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
     background: linear-gradient(360deg, #FFE283 6%, #FFCFBB 100%);
 }
 
-.footer-github p {
+.footer-icon p {
     font-family: 'Audiowide', sans-serif;
     font-size: 16px;
     text-align: center;
