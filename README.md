@@ -1,3 +1,3 @@
-https://anton-pankratov.github.io/rsschool-cv/cv
+Markdown: https://anton-pankratov.github.io/rsschool-cv/cv
 
-https://anton-pankratov.github.io/rsschool-cv/
+HTML+CSS: https://anton-pankratov.github.io/rsschool-cv/

@@ -1,0 +1,61 @@
+<pre>
+    <code>
+        /** Fetching Status Enum Class */
+
+        enum class FetchStatus {
+            NONE, FETCHING, SUCCESS_DATA_EXIST, SUCCESS_DATA_EXIST_NOT, FAILURE
+        }
+
+        /** In ViewModel */
+
+        private val _status = MutableStateFlow(FetchStatus.NONE)
+        val status: LiveData<FetchStatus> = _status
+
+        fun fetchData() {
+            viewModelScope.launch {
+                val response = repository.fetchData()
+                _status.value = FetchStatus.FETCHING
+
+            when (response) {
+                SUCCESS -> {
+                    val result = response.convertFromJson<List<Data>>()
+                    if (result.isNullOrEmpty) {
+                        _status.value = FetchStatus.SUCCESS_DATA_EXIST
+                        dao.updateData(result)
+                    } else {
+                        _status.value = FetchStatus.SUCCESS_DATA_EXIST_NOT
+                    }
+                }
+                FAILURE -> {
+                    _status.value = FetchStatus.FAILURE
+                }
+            }
+        }
+
+        /** In Fragment */
+
+        fun collectFetchStatus() {
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewModel.status.collect { status ->
+                    when (status) {
+                        FetchStatus.FETCHING -> showProgressVIew()
+                        else -> status.showDialog()
+                    }
+                }
+            }
+        }
+
+        fun FetchStatus.showDialog() {
+            context.resources.apply {
+                when (this) {
+                    FetchStatus.SUCCESS_DATA_EXIST -> 
+                        buildDialog(getString(R.string.dialog_data_exist))
+                    FetchStatus.SUCCESS_DATA_EXIST_NOT -> 
+                        buildDialog(getString(R.string.dialog_data_not_exist))
+                    FetchStatus.FAILURE -> 
+                        buildDialog(getString(R.string.dialog_failure))
+                }
+            }
+        }
+    </code>
+</pre>
